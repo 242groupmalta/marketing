@@ -670,12 +670,30 @@
   </footer>
 
   <script>
+    const RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxEwe5Tkx467jATqm2D9ScoGSjviq1Hf8sFCIAKIkfEopAXl6xxuylpByvETTNm4iAe/exec';
+
     document.getElementById('rsvpForm').addEventListener('submit', function(e){
       e.preventDefault();
+      const form = this;
       const note = document.getElementById('formNote');
-      note.textContent = "Thank you — your RSVP has been received.";
+      const submitBtn = form.querySelector('.btn-submit');
+
       note.style.color = "#7a6a3f";
-      this.reset();
+      note.textContent = "Submitting...";
+      submitBtn.disabled = true;
+
+      fetch(RSVP_ENDPOINT, { method: 'POST', mode: 'no-cors', body: new FormData(form) })
+        .then(() => {
+          note.textContent = "Thank you — your RSVP has been received.";
+          form.reset();
+        })
+        .catch(() => {
+          note.style.color = "#b5533c";
+          note.textContent = "Something went wrong. Please try again or contact us directly.";
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+        });
     });
   </script>
 
