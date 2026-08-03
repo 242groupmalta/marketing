@@ -462,8 +462,12 @@
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 980px){
     .hero{ grid-template-columns:1fr;}
-    .hero-left{ padding: 3.5rem 2rem 1rem; order:2;}
-    .hero-right{ order:1; padding: 3rem 1.5rem 1rem;}
+    .hero-left{ padding: 3.5rem 2rem 1rem; order:1; align-items:center; text-align:center;}
+    .hero-right{ order:2; padding: 3rem 1.5rem 1rem;}
+    .hero-eyebrow-line{ justify-content:center;}
+    .brand-mark img{ margin:0 auto;}
+    .hero-rule{ margin-left:auto; margin-right:auto;}
+    .hero-tag p{ margin:0 auto;}
     .hero-title{ font-size: clamp(2.6rem, 12vw, 4rem);}
     .details-bar{ grid-template-columns: 1fr 1fr;}
     .detail-item:nth-child(2)::after{ display:none;}
