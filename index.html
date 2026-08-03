@@ -417,15 +417,36 @@
   /* ---------- FOOTER ---------- */
   footer{
     background: var(--ink);
-    padding: 3rem 3rem;
+    padding: 3rem 3rem 2rem;
+    position:relative;
+    overflow:hidden;
+  }
+  .footer-main{
     display:flex;
     align-items:center;
     justify-content:space-between;
     flex-wrap:wrap;
     gap:2rem;
-    position:relative;
-    overflow:hidden;
   }
+  .footer-legal{
+    margin-top:2.4rem;
+    padding-top:1.6rem;
+    border-top:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:0.7rem;
+  }
+  .footer-legal a{
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+    color:#cfc6ac;
+    transition: color .2s ease;
+  }
+  .footer-legal a:hover{ color:var(--gold-light);}
+  .footer-legal .dot-sep{ color:var(--gold); font-size:0.7rem;}
+
   .footer-brand{ display:flex; align-items:center; gap:1.6rem;}
   .footer-badge img{
     width:120px;
@@ -482,7 +503,7 @@
     .detail-item:nth-child(2)::after{ display:none;}
     .detail-item:nth-child(odd)::after{ display:none;}
     .form-grid{ grid-template-columns: 1fr;}
-    footer{ flex-direction:column; text-align:center;}
+    .footer-main{ flex-direction:column; text-align:center;}
     .footer-map{ max-width:100%; width:100%;}
   }
   @media (max-width: 560px){
@@ -581,7 +602,7 @@
         <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
       </div>
       <div class="detail-label">Expect</div>
-      <div class="detail-value">A Night of Magical Rock 'n' Roll<br>with Amazing Exclusive Experiences</div>
+      <div class="detail-value">A Night of Magical Rock &lsquo;n&rsquo; Roll with Amazing Exclusive Experiences</div>
     </div>
   </section>
 
@@ -667,21 +688,31 @@
       </svg>
     </div>
 
-    <div class="footer-brand">
-      <div class="footer-badge">
-        <img src="https://hardrockmalta.rsvp/wp-content/uploads/2026/08/HRH-Malta_Logo_1C_1R_Wht.png" alt="Hard Rock Hotel Malta">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-badge">
+          <img src="https://hardrockmalta.rsvp/wp-content/uploads/2026/08/HRH-Malta_Logo_1C_1R_Wht.png" alt="Hard Rock Hotel Malta">
+        </div>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/hardrockhotelmalta/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/hardrockhotelmalta/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7C16.4 3.65 15.4 3.5 14.3 3.5c-2.3 0-3.9 1.4-3.9 4v2.4H7.7V13h2.7v8h3.1z"/></svg></a>
+        </div>
       </div>
-      <div class="footer-social">
-        <a href="https://www.instagram.com/hardrockhotelmalta/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor"/></svg></a>
-        <a href="https://www.facebook.com/hardrockhotelmalta/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7C16.4 3.65 15.4 3.5 14.3 3.5c-2.3 0-3.9 1.4-3.9 4v2.4H7.7V13h2.7v8h3.1z"/></svg></a>
+
+      <div class="footer-map">
+        <iframe
+          src="https://www.google.com/maps?q=Hard+Rock+Hotel+Malta,+Triq+il-Professur+Walter+Ganado,+St+George's+Bay,+St+Julian's&output=embed"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Hard Rock Hotel Malta location"></iframe>
       </div>
     </div>
 
-    <div class="footer-map">
-      <iframe
-        src="https://www.google.com/maps?q=Hard+Rock+Hotel+Malta,+Triq+il-Professur+Walter+Ganado,+St+George's+Bay,+St+Julian's&output=embed"
-        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        title="Hard Rock Hotel Malta location"></iframe>
+    <div class="footer-legal">
+      <a href="https://hotel.hardrock.com/privacy.aspx" target="_blank" rel="noopener">Privacy Policy</a>
+      <span class="dot-sep">&bull;</span>
+      <a href="https://hotel.hardrock.com/legal-disclaimer.aspx" target="_blank" rel="noopener">Legal Disclaimer</a>
+      <span class="dot-sep">&bull;</span>
+      <a href="https://www.hardrock.com/ccpa.aspx?_gl=1*nu8g0k*_gcl_au*MTcyMzI3NDA2OC4xNzg1NzU2NjI2" target="_blank" rel="noopener">CCPA</a>
     </div>
   </footer>
 
