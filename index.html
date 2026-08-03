@@ -426,12 +426,24 @@
     position:relative;
     overflow:hidden;
   }
-  .footer-brand{ display:flex; align-items:center; gap:1rem;}
+  .footer-brand{ display:flex; align-items:center; gap:1.6rem;}
   .footer-badge img{
-    width:64px;
+    width:120px;
     height:auto;
     display:block;
   }
+
+  .footer-social{ display:flex; gap:0.8rem;}
+  .footer-social a{
+    width:38px; height:38px;
+    border-radius:50%;
+    background: var(--gold);
+    color: var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    transition: transform .25s ease, background .25s ease;
+  }
+  .footer-social a:hover{ transform:translateY(-3px); background:var(--gold-light);}
+  .footer-social svg{ width:18px; height:18px;}
 
   .footer-map{
     flex:1;
@@ -569,7 +581,7 @@
         <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
       </div>
       <div class="detail-label">Expect</div>
-      <div class="detail-value">Live Music, Entertainment,<br>Cocktails &amp; Dining, Exclusive Experiences</div>
+      <div class="detail-value">A Night of Magical Rock 'n' Roll<br>with Amazing Exclusive Experiences</div>
     </div>
   </section>
 
@@ -658,6 +670,10 @@
     <div class="footer-brand">
       <div class="footer-badge">
         <img src="https://hardrockmalta.rsvp/wp-content/uploads/2026/08/HRH-Malta_Logo_1C_1R_Wht.png" alt="Hard Rock Hotel Malta">
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/hardrockhotelmalta/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor"/></svg></a>
+        <a href="https://www.facebook.com/hardrockhotelmalta/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7C16.4 3.65 15.4 3.5 14.3 3.5c-2.3 0-3.9 1.4-3.9 4v2.4H7.7V13h2.7v8h3.1z"/></svg></a>
       </div>
     </div>
 
