@@ -210,7 +210,7 @@
     margin: 0 auto 2rem;
     position:relative;
   }
-  .cross-wrap svg{ width:100%; height:100%; filter: drop-shadow(0 6px 14px rgba(120,90,20,0.25));}
+  .cross-wrap img{ width:100%; height:100%; object-fit:contain; filter: drop-shadow(0 6px 14px rgba(120,90,20,0.25));}
   .dot{
     position:absolute;
     width:5px; height:5px;
@@ -524,32 +524,7 @@
 
         <div class="cross-wrap">
           <span class="dot tl"></span><span class="dot tr"></span><span class="dot bl"></span><span class="dot br"></span>
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#d9b56a"/>
-                <stop offset="50%" stop-color="#a97e3a"/>
-                <stop offset="100%" stop-color="#c79a4b"/>
-              </linearGradient>
-            </defs>
-            <g transform="translate(100,100)">
-              <g id="wedge">
-                <path d="M0,0 L 55,-55 L 6,-14 Z" fill="url(#goldGrad)"/>
-                <path d="M0,0 L 55,-55 L 14,-6 Z" fill="url(#goldGrad)" opacity="0.75"/>
-              </g>
-              <use href="#wedge" transform="rotate(90)"/>
-              <use href="#wedge" transform="rotate(180)"/>
-              <use href="#wedge" transform="rotate(270)"/>
-              <g id="tip">
-                <path d="M0,0 L -18,-88 L 0,-72 L 18,-88 Z" fill="url(#goldGrad)"/>
-              </g>
-              <use href="#tip" transform="rotate(0)"/>
-              <use href="#tip" transform="rotate(90)"/>
-              <use href="#tip" transform="rotate(180)"/>
-              <use href="#tip" transform="rotate(270)"/>
-              <circle r="10" fill="none" stroke="url(#goldGrad)" stroke-width="1.5"/>
-            </g>
-          </svg>
+          <img src="https://hardrockmalta.rsvp/wp-content/uploads/2026/08/Asset-1@2x-3-1.png" alt="Hard Rock Hotel Malta Guitar Cross">
         </div>
 
         <div class="invite-rule"></div>
