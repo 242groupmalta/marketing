@@ -1,0 +1,618 @@
+<style>
+  @font-face{
+    font-family:'George';
+    src:url('fonts/George-Light.otf') format('opentype');
+    font-weight:300;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'George';
+    src:url('fonts/George-Semibold.otf') format('opentype');
+    font-weight:600;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'George';
+    src:url('fonts/George-Bold.otf') format('opentype');
+    font-weight:700;
+    font-style:normal;
+    font-display:swap;
+  }
+
+  .hrh-page{
+    --ink:#0d201b;
+    --ink-2:#132a23;
+    --gold:#c79a4b;
+    --gold-light:#e3c583;
+    --cream:#f2ead9;
+    --cream-2:#e9dfc9;
+    --line: rgba(199,154,75,0.35);
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'George', sans-serif;
+    font-weight:300;
+    overflow-x:hidden;
+  }
+  .hrh-page, .hrh-page *{ box-sizing:border-box; margin:0; padding:0; }
+  .hrh-page h1, .hrh-page h2, .hrh-page h3{font-family:'George', serif; font-weight:700;}
+  .hrh-page .serif{font-family:'George', serif; font-weight:300;}
+  .hrh-page a{color:inherit; text-decoration:none;}
+
+  .hrh-page .eyebrow{
+    letter-spacing:0.28em;
+    font-size:0.72rem;
+    color:var(--gold-light);
+    text-transform:uppercase;
+    font-weight:600;
+  }
+
+  /* ---------- HERO ---------- */
+  .hrh-page .hero{
+    position:relative;
+    display:grid;
+    grid-template-columns: 1.15fr 1fr;
+    min-height:100vh;
+    background: var(--ink);
+  }
+  .hrh-page .hero::before{
+    content:'';
+    position:absolute; inset:0;
+    background-image:
+      radial-gradient(1px 1px at 20% 15%, rgba(199,154,75,0.5), transparent),
+      radial-gradient(1px 1px at 60% 8%, rgba(199,154,75,0.4), transparent),
+      radial-gradient(1px 1px at 80% 30%, rgba(199,154,75,0.5), transparent),
+      radial-gradient(1px 1px at 35% 60%, rgba(199,154,75,0.3), transparent),
+      radial-gradient(1px 1px at 92% 70%, rgba(199,154,75,0.4), transparent),
+      radial-gradient(1px 1px at 15% 85%, rgba(199,154,75,0.45), transparent);
+    background-size: 100% 100%;
+    pointer-events:none;
+    opacity:0.9;
+  }
+
+  .hrh-page .hero-left{
+    position:relative;
+    padding: 4.5rem 4rem 4rem;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    z-index:2;
+  }
+
+  .hrh-page .brand-mark{
+    margin-bottom:2.6rem;
+    animation: hrhFadeUp 0.9s ease both;
+  }
+  .hrh-page .brand-mark img{
+    width:110px;
+    height:auto;
+    display:block;
+  }
+
+  .hrh-page .hero-eyebrow-line{
+    display:flex; align-items:center; gap:0.9rem;
+    margin-bottom:1rem;
+    animation: hrhFadeUp 0.9s ease 0.1s both;
+  }
+  .hrh-page .hero-eyebrow-line .rule{ width:34px; height:1px; background:var(--gold);}
+
+  .hrh-page .hero-title{
+    font-size:clamp(3.4rem, 7vw, 6.2rem);
+    line-height:0.95;
+    color:var(--cream);
+    letter-spacing:0.01em;
+    animation: hrhFadeUp 1s ease 0.18s both;
+  }
+  .hrh-page .hero-title .thin{ font-weight:600; }
+
+  .hrh-page .hero-rule{
+    width:64px; height:1px;
+    background:var(--gold);
+    margin:1.9rem 0 1.6rem;
+    animation: hrhFadeUp 1s ease 0.3s both;
+  }
+
+  .hrh-page .hero-tag{
+    animation: hrhFadeUp 1s ease 0.36s both;
+  }
+  .hrh-page .hero-tag .eyebrow{ margin-bottom:0.9rem; display:block;}
+  .hrh-page .hero-tag p{
+    font-family:'George', serif;
+    font-weight:300;
+    font-size:1.28rem;
+    line-height:1.55;
+    color:#d8cfba;
+    max-width:30ch;
+  }
+
+  .hrh-page .cta-row{
+    margin-top:2.6rem;
+    animation: hrhFadeUp 1s ease 0.46s both;
+  }
+  .hrh-page .btn-outline{
+    display:inline-flex;
+    align-items:center;
+    gap:0.7rem;
+    border:1px solid var(--gold);
+    padding:0.95rem 2.1rem;
+    font-size:0.78rem;
+    letter-spacing:0.22em;
+    color:var(--gold-light);
+    text-transform:uppercase;
+    background:transparent;
+    cursor:pointer;
+    transition: background 0.35s ease, color 0.35s ease, letter-spacing .35s ease;
+  }
+  .hrh-page .btn-outline:hover{
+    background:var(--gold);
+    color:var(--ink);
+    letter-spacing:0.26em;
+  }
+  .hrh-page .star{
+    display:inline-block;
+    transform-origin:center;
+  }
+
+  /* ---------- RIGHT: INVITATION CARD ---------- */
+  .hrh-page .hero-right{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 3rem;
+    z-index:2;
+  }
+  .hrh-page .invite-card{
+    position:relative;
+    width:100%;
+    max-width:430px;
+    background: linear-gradient(180deg, #f5efe1, #ebe1c9);
+    border-radius: 220px 220px 14px 14px;
+    padding: 3rem 2.6rem 3.2rem;
+    text-align:center;
+    color:var(--ink);
+    box-shadow: 0 40px 90px -30px rgba(0,0,0,0.65), 0 0 0 1px rgba(199,154,75,0.25);
+    animation: hrhCardIn 1.1s cubic-bezier(.2,.8,.2,1) 0.25s both;
+  }
+  .hrh-page .invite-card::before{
+    content:'';
+    position:absolute;
+    inset:14px;
+    border-radius:206px 206px 6px 6px;
+    border:1px solid rgba(199,154,75,0.55);
+    pointer-events:none;
+  }
+  .hrh-page .invite-badge{
+    margin:0 auto 1.8rem;
+  }
+  .hrh-page .invite-badge img{
+    width:90px;
+    height:auto;
+    display:block;
+    margin:0 auto;
+    filter: brightness(0) saturate(100%) invert(11%) sepia(15%) saturate(1200%) hue-rotate(120deg) brightness(0.8);
+  }
+
+  .hrh-page .cross-wrap{
+    width:230px; height:230px;
+    margin: 0 auto 2rem;
+    position:relative;
+  }
+  .hrh-page .cross-wrap img{ width:100%; height:100%; object-fit:contain; filter: drop-shadow(0 6px 14px rgba(120,90,20,0.25));}
+  .hrh-page .dot{
+    position:absolute;
+    width:5px; height:5px;
+    border-radius:50%;
+    background:var(--gold);
+  }
+  .hrh-page .dot.tl{ top:8px; left:8px;}
+  .hrh-page .dot.tr{ top:8px; right:8px;}
+  .hrh-page .dot.bl{ bottom:8px; left:8px;}
+  .hrh-page .dot.br{ bottom:8px; right:8px;}
+
+  .hrh-page .invite-rule{
+    width:44px; height:1px; background:var(--gold);
+    margin: 0 auto 1.4rem;
+    position:relative;
+  }
+  .hrh-page .invite-rule::before{
+    content:''; position:absolute; left:50%; top:-2.5px; transform:translateX(-50%);
+    width:4px; height:4px; border-radius:50%; background:var(--gold);
+  }
+
+  .hrh-page .invite-day{
+    font-size:0.72rem;
+    letter-spacing:0.32em;
+    color:#4a3d24;
+    margin-bottom:0.5rem;
+  }
+  .hrh-page .invite-date{
+    font-family:'George', serif;
+    font-weight:700;
+    font-size:1.55rem;
+    letter-spacing:0.03em;
+    color:var(--ink);
+    margin-bottom:1.6rem;
+  }
+  .hrh-page .invite-venue{
+    font-size:0.78rem;
+    letter-spacing:0.14em;
+    font-weight:600;
+    color:var(--ink);
+    margin-bottom:0.55rem;
+  }
+  .hrh-page .invite-address{
+    font-family:'George', serif;
+    font-weight:300;
+    font-size:0.98rem;
+    line-height:1.5;
+    color:#5b4a28;
+    letter-spacing:0.02em;
+  }
+
+  @keyframes hrhFadeUp{
+    from{ opacity:0; transform:translateY(18px);}
+    to{ opacity:1; transform:translateY(0);}
+  }
+  @keyframes hrhCardIn{
+    from{ opacity:0; transform:translateY(24px) scale(0.97);}
+    to{ opacity:1; transform:translateY(0) scale(1);}
+  }
+
+  /* ---------- DETAILS BAR ---------- */
+  .hrh-page .details-bar{
+    background: var(--ink-2);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .hrh-page .detail-item{
+    padding: 3.4rem 2rem;
+    text-align:center;
+    position:relative;
+  }
+  .hrh-page .detail-item:not(:last-child)::after{
+    content:'';
+    position:absolute;
+    top:20%; bottom:20%; right:0;
+    width:1px;
+    background: var(--line);
+  }
+  .hrh-page .detail-icon{
+    width:34px; height:34px;
+    margin:0 auto 1.1rem;
+    color:var(--gold);
+  }
+  .hrh-page .detail-icon svg{ width:100%; height:100%; stroke:var(--gold); fill:none;}
+  .hrh-page .detail-label{
+    font-size:0.72rem;
+    letter-spacing:0.24em;
+    color:var(--gold-light);
+    text-transform:uppercase;
+    margin-bottom:0.8rem;
+    font-weight:600;
+  }
+  .hrh-page .detail-value{
+    font-family:'George', serif;
+    font-weight:300;
+    font-size:1.1rem;
+    line-height:1.5;
+    color:#e4dcc7;
+  }
+
+  /* ---------- RSVP ---------- */
+  .hrh-page .rsvp-section{
+    background: var(--cream);
+    color:var(--ink);
+    padding: 5.5rem 2rem 5rem;
+  }
+  .hrh-page .rsvp-inner{
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .hrh-page .rsvp-head{ text-align:center; margin-bottom:3rem;}
+  .hrh-page .rsvp-head h2{
+    font-size: 2.8rem;
+    letter-spacing:0.18em;
+    color:var(--ink);
+    margin-bottom:1.1rem;
+  }
+  .hrh-page .rsvp-underline{
+    width:50px; height:2px; background:var(--gold);
+    margin:0 auto 1.6rem;
+  }
+  .hrh-page .rsvp-head p{
+    font-family:'George', serif;
+    font-weight:300;
+    font-size:1.15rem;
+    color:#4c4c40;
+  }
+  .hrh-page .rsvp-head .deadline{
+    font-weight:600;
+    color:var(--ink);
+    margin-top:0.4rem;
+    font-family:'George', sans-serif;
+    font-size:0.92rem;
+    letter-spacing:0.03em;
+  }
+
+  .hrh-page form{ margin-top:2.6rem;}
+  .hrh-page .form-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:1.1rem 1.3rem;
+  }
+  .hrh-page .field{
+    border:1px solid rgba(13,32,27,0.25);
+    background: rgba(255,255,255,0.4);
+    padding: 0.85rem 1.1rem 0.7rem;
+    display:flex;
+    align-items:center;
+    gap:0.85rem;
+    transition: border-color .25s ease, background .25s ease;
+  }
+  .hrh-page .field:focus-within{
+    border-color: var(--gold);
+    background: rgba(255,255,255,0.7);
+  }
+  .hrh-page .field svg{ width:18px; height:18px; stroke:#7a6a3f; fill:none; flex-shrink:0;}
+  .hrh-page .field-text{ display:flex; flex-direction:column; flex:1; min-width:0;}
+  .hrh-page .field-text label{
+    font-size:0.65rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:#7a6a3f;
+    font-weight:600;
+    margin-bottom:2px;
+  }
+  .hrh-page .field-text input, .hrh-page .field-text textarea{
+    border:none; outline:none; background:transparent;
+    font-family:'George', sans-serif;
+    font-weight:300;
+    font-size:0.95rem;
+    color:var(--ink);
+    padding:0;
+    resize:none;
+  }
+  .hrh-page .field-text input::placeholder, .hrh-page .field-text textarea::placeholder{ color:#9a8f6c;}
+
+  .hrh-page .submit-row{ text-align:center; margin-top:2.2rem;}
+  .hrh-page .btn-submit{
+    background: var(--ink);
+    color: var(--gold-light);
+    border:none;
+    padding:1.05rem 3.2rem;
+    font-size:0.8rem;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    cursor:pointer;
+    display:inline-flex; align-items:center; gap:0.7rem;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .hrh-page .btn-submit:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px -12px rgba(13,32,27,0.5);
+  }
+  .hrh-page .form-note{
+    text-align:center;
+    font-size:0.82rem;
+    color:#6d6d5f;
+    margin-top:1.1rem;
+    min-height:1.1rem;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 980px){
+    .hrh-page .hero{ grid-template-columns:1fr;}
+    .hrh-page .hero-left{ padding: 3.5rem 2rem 1rem; order:1; align-items:center; text-align:center;}
+    .hrh-page .hero-right{ order:2; padding: 3rem 1.5rem 1rem;}
+    .hrh-page .hero-eyebrow-line{ justify-content:center;}
+    .hrh-page .brand-mark img{ margin:0 auto;}
+    .hrh-page .hero-rule{ margin-left:auto; margin-right:auto;}
+    .hrh-page .hero-tag p{ margin:0 auto;}
+    .hrh-page .hero-title{ font-size: clamp(2.6rem, 12vw, 4rem);}
+    .hrh-page .details-bar{ grid-template-columns: 1fr 1fr;}
+    .hrh-page .detail-item:nth-child(2)::after{ display:none;}
+    .hrh-page .detail-item:nth-child(odd)::after{ display:none;}
+    .hrh-page .form-grid{ grid-template-columns: 1fr;}
+  }
+  @media (max-width: 560px){
+    .hrh-page .hero-left{ padding:2.5rem 1.4rem 0.5rem;}
+    .hrh-page .invite-card{ padding: 2.4rem 1.6rem 2.6rem;}
+    .hrh-page .cross-wrap{ width:180px; height:180px;}
+    .hrh-page .details-bar{ grid-template-columns: 1fr 1fr;}
+    .hrh-page .detail-item{ padding:2.2rem 1rem;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .hrh-page *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+</style>
+
+<div class="hrh-page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="brand-mark">
+        <img src="https://hardrockmalta.rsvp/wp-content/uploads/2026/08/HRH-Malta_Logo_1C_1R_Wht.png" alt="Hard Rock Hotel Malta">
+      </div>
+
+      <div class="hero-eyebrow-line">
+        <span class="rule"></span>
+        <span class="eyebrow">Hard Rock Hotel Malta</span>
+      </div>
+
+      <h1 class="hero-title">GRAND<br><span class="thin">OPENING</span></h1>
+
+      <div class="hero-rule"></div>
+
+      <div class="hero-tag">
+        <span class="eyebrow">Rocking Malta This September</span>
+        <p>Join us as we officially open the doors to Hard Rock Hotel Malta — a new era of music, luxury and unforgettable experiences.</p>
+      </div>
+
+      <div class="cta-row">
+        <button class="btn-outline" onclick="document.getElementById('rsvp').scrollIntoView({behavior:'smooth'})">
+          <span class="star">✦</span> Save the Date
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="invite-card">
+        <div class="invite-badge">
+          <img src="https://hardrockmalta.rsvp/wp-content/uploads/2026/08/HRH-Malta_Logo_1C_1R_Wht.png" alt="Hard Rock Hotel Malta">
+        </div>
+
+        <div class="cross-wrap">
+          <span class="dot tl"></span><span class="dot tr"></span><span class="dot bl"></span><span class="dot br"></span>
+          <img src="https://hardrockmalta.rsvp/wp-content/uploads/2026/08/Asset-1@2x-3-1.png" alt="Hard Rock Hotel Malta Guitar Cross">
+        </div>
+
+        <div class="invite-rule"></div>
+
+        <div class="invite-day">WEDNESDAY</div>
+        <div class="invite-date">2<sup>ND</sup> SEPTEMBER 2026</div>
+
+        <div class="invite-venue">HARD ROCK HOTEL MALTA</div>
+        <div class="invite-address">
+          Triq il-Professur, Walter Ganado,<br>
+          St George's Bay, St Julian's
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILS BAR -->
+  <section class="details-bar">
+    <div class="detail-item">
+      <div class="detail-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.4"><rect x="3" y="5" width="18" height="16" rx="1.5"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="7" y1="2" x2="7" y2="6"/><line x1="17" y1="2" x2="17" y2="6"/></svg>
+      </div>
+      <div class="detail-label">Date</div>
+      <div class="detail-value">Wednesday,<br>2nd September 2026</div>
+    </div>
+    <div class="detail-item">
+      <div class="detail-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+      </div>
+      <div class="detail-label">Time</div>
+      <div class="detail-value">From 7:00 PM<br>onwards</div>
+    </div>
+    <div class="detail-item">
+      <div class="detail-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.3"/></svg>
+      </div>
+      <div class="detail-label">Location</div>
+      <div class="detail-value">Hard Rock Hotel Malta<br>St George's Bay, St Julian's</div>
+    </div>
+    <div class="detail-item">
+      <div class="detail-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.4"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+      </div>
+      <div class="detail-label">Expect</div>
+      <div class="detail-value">A Night of Magical Rock &lsquo;n&rsquo; Roll with Amazing Exclusive Experiences</div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="rsvp-section" id="rsvp">
+    <div class="rsvp-inner">
+      <div class="rsvp-head">
+        <h2>RSVP</h2>
+        <div class="rsvp-underline"></div>
+        <p>We would be delighted to have you celebrate this special occasion with us.</p>
+        <p class="deadline">Kindly RSVP by 15th August 2026.</p>
+      </div>
+
+      <form id="rsvpForm">
+        <div class="form-grid">
+          <div class="field">
+            <svg viewBox="0 0 24 24" stroke-width="1.6"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20c1.5-4 5-5.5 7.5-5.5s6 1.5 7.5 5.5"/></svg>
+            <div class="field-text">
+              <label for="fullName">Full Name</label>
+              <input id="fullName" name="fullName" type="text" placeholder="Enter your full name" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <svg viewBox="0 0 24 24" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M4 5.5l8 6.5 8-6.5"/></svg>
+            <div class="field-text">
+              <label for="company">Company / Organisation</label>
+              <input id="company" name="company" type="text" placeholder="Enter company or organisation">
+            </div>
+          </div>
+
+          <div class="field">
+            <svg viewBox="0 0 24 24" stroke-width="1.6"><rect x="2.5" y="5" width="19" height="15" rx="1.5"/><path d="M3 6.5l9 6.5 9-6.5"/></svg>
+            <div class="field-text">
+              <label for="email">Email Address</label>
+              <input id="email" name="email" type="email" placeholder="Enter your email address" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <svg viewBox="0 0 24 24" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M2.5 19c1.2-3.3 4-4.7 6.5-4.7s5.3 1.4 6.5 4.7"/><circle cx="17" cy="8" r="3"/><path d="M15 14.4c2 .2 4 1.6 5 4.6"/></svg>
+            <div class="field-text">
+              <label for="guests">Number of Guests</label>
+              <input id="guests" name="guests" type="number" min="1" placeholder="e.g. 2">
+            </div>
+          </div>
+
+          <div class="field">
+            <svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M17 2v20"/><path d="M13 2v7a2 2 0 0 0 4 0V2"/><path d="M7 2c-1.5 0-2.5 2-2.5 5S5.5 12 7 12v10"/></svg>
+            <div class="field-text">
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" type="tel" placeholder="Enter your phone number">
+            </div>
+          </div>
+
+          <div class="field">
+            <svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M17 2v20"/><path d="M13 2v7a2 2 0 0 0 4 0V2"/><path d="M7 2c-1.5 0-2.5 2-2.5 5S5.5 12 7 12v10"/></svg>
+            <div class="field-text">
+              <label for="dietary">Dietary Requirements</label>
+              <input id="dietary" name="dietary" type="text" placeholder="Any dietary requirements?">
+            </div>
+          </div>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" class="btn-submit">Submit RSVP <span>✦</span></button>
+          <p class="form-note" id="formNote"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  const RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwtU_aviqI0LpPMw0e9qm2LJ7JzsHz8o4cGhcyOlYgD7mm1s4jkVpHPHkxtMLCUQuIi6w/exec';
+
+  document.getElementById('rsvpForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const form = this;
+    const note = document.getElementById('formNote');
+    const submitBtn = form.querySelector('.btn-submit');
+
+    note.style.color = "#7a6a3f";
+    note.textContent = "Submitting...";
+    submitBtn.disabled = true;
+
+    fetch(RSVP_ENDPOINT, { method: 'POST', mode: 'no-cors', body: new FormData(form) })
+      .then(() => {
+        note.textContent = "Thank you — your RSVP has been received.";
+        form.reset();
+      })
+      .catch(() => {
+        note.style.color = "#b5533c";
+        note.textContent = "Something went wrong. Please try again or contact us directly.";
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+      });
+  });
+</script>
