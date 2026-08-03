@@ -35,11 +35,6 @@
     font-weight:300;
     overflow-x:hidden;
     position:relative;
-    left:50%;
-    right:50%;
-    width:100vw;
-    margin-left:-50vw;
-    margin-right:-50vw;
   }
   .hrh-page, .hrh-page *{ box-sizing:border-box; margin:0; padding:0; }
   .hrh-page h1, .hrh-page h2, .hrh-page h3{font-family:'George', serif; font-weight:700;}
@@ -621,4 +616,27 @@
         submitBtn.disabled = false;
       });
   });
+
+  (function(){
+    function bleed(el){
+      el.style.width = '';
+      el.style.marginLeft = '';
+      el.style.marginRight = '';
+      var left = el.getBoundingClientRect().left;
+      el.style.width = window.innerWidth + 'px';
+      el.style.marginLeft = (-left) + 'px';
+      el.style.marginRight = 'auto';
+    }
+    function run(){
+      document.querySelectorAll('.hrh-page, .hrh-footer').forEach(bleed);
+    }
+    var resizeTimer;
+    window.addEventListener('resize', function(){
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(run, 150);
+    });
+    document.addEventListener('DOMContentLoaded', run);
+    window.addEventListener('load', run);
+    if (document.readyState !== 'loading') run();
+  })();
 </script>
