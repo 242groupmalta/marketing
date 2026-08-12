@@ -34,9 +34,10 @@
     color:#fff;
   }
   .wbm-footer-brand .wbm-logo-img{
-    display:block;
-    height:42px;
-    width:auto;
+    display:block !important;
+    height:42px !important;
+    width:auto !important;
+    max-width:none !important;
     /* Source file is dark line-art on a transparent background — force it
        white so it reads on this dark navy footer. If you have a dedicated
        white/light logo variant, swap the src below and drop this filter. */
@@ -102,6 +103,7 @@
           src="https://darkslategrey-louse-379748.hostingersite.com/wp-content/uploads/2026/06/WM-logo-1-scaled.png"
           alt="Wristbands Malta"
           class="wbm-logo-img"
+          style="display:block; height:42px; width:auto; max-width:none; filter:brightness(0) invert(1);"
           loading="lazy"
           decoding="async">
       </a>

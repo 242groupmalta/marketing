@@ -45,9 +45,10 @@
     flex-shrink:0;
   }
   .wbm-logo-img{
-    display:block;
-    height:clamp(34px, 4.6vw, 46px);
-    width:auto;
+    display:block !important;
+    height:clamp(34px, 4.6vw, 46px) !important;
+    width:auto !important;
+    max-width:none !important;
   }
 
   /* ---- Nav ---- */
@@ -172,7 +173,7 @@
   @media (max-width:420px){
     .wbm-header-inner{ gap:0.4rem; }
     .wbm-right{ gap:0.5rem; }
-    .wbm-logo-img{ height:clamp(28px, 8vw, 36px); }
+    .wbm-logo-img{ height:clamp(28px, 8vw, 36px) !important; }
     .wbm-cta{ padding:0.55rem 0.85rem; font-size:0.72rem; letter-spacing:0.01em; }
     .wbm-burger{ width:22px; }
   }
@@ -187,6 +188,7 @@
         src="https://darkslategrey-louse-379748.hostingersite.com/wp-content/uploads/2026/06/WM-logo-1-scaled.png"
         alt="Wristbands Malta"
         class="wbm-logo-img"
+        style="display:block; height:40px; width:auto; max-width:none;"
         loading="eager"
         decoding="async">
     </a>
