@@ -12,9 +12,10 @@
 -->
 <style>
   .wbm-header{
-    --navy:#17224a;
-    --navy-deep:#0a1226;
-    --ink:#1b2340;
+    --navy:#1c244b;
+    --navy-deep:#10152e;
+    --accent:#477ff7;
+    --ink:#1c244b;
     --line:#e7e9ef;
     position:sticky; top:0; z-index:1000;
     background:#fff;
@@ -97,10 +98,11 @@
     position:absolute;
     left:0; bottom:0;
     width:0; height:2px;
-    background:var(--navy);
+    background:var(--accent);
     transition:width .2s ease;
   }
   .wbm-nav a:hover::after{ width:100%; }
+  .wbm-nav a:hover{ color:var(--accent); }
 
   .wbm-right{
     display:flex;
@@ -139,7 +141,7 @@
   .wbm-cta:hover::before{ opacity:1; }
   .wbm-cta:hover{
     transform:translateY(-1px);
-    box-shadow:0 8px 20px rgba(10,18,38,0.35);
+    box-shadow:0 8px 20px rgba(10,18,38,0.35), 0 0 0 3px rgba(71,127,247,0.25);
   }
 
   /* ---- Mobile ---- */
