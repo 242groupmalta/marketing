@@ -1,0 +1,35 @@
+{
+  "content": [
+    {
+      "id": "dfc20cc",
+      "elType": "container",
+      "settings": {
+        "content_width": "full",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "8d23148",
+          "elType": "widget",
+          "settings": {
+            "html": "<style>\n.wbm-footer{\n  --navy:#1c244b;\n  --navy-deep:#10152e;\n  --accent:#477ff7;\n  --ink:#1c244b;\n  --muted:#aab1c9;\n  --line:rgba(255,255,255,0.1);\n  background:var(--navy);\n  color:#eef0f7;\n  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;\n}\n\n.wbm-footer-inner{\n  max-width:1240px;\n  margin:0 auto;\n  padding:3.5rem 1.5rem 2rem;\n  display:grid;\n  grid-template-columns:1.2fr 1.2fr 1fr 1fr;\n  gap:2.5rem;\n}\n\n.wbm-footer-brand .wbm-logo{\n  display:inline-flex;\n  align-items:center;\n  text-decoration:none;\n  color:#fff;\n}\n.wbm-footer-brand .wbm-logo-img{\n  display:block !important;\n  height:42px !important;\n  width:auto !important;\n  max-width:none !important;\n  /* Source file is dark line-art on a transparent background \u2014 force it\n     white so it reads on this dark navy footer. If you have a dedicated\n     white/light logo variant, swap the src in footer-markup.html and\n     drop this filter line. */\n  filter:brightness(0) invert(1);\n}\n\n.wbm-footer-col h4{\n  font-size:0.85rem;\n  text-transform:uppercase;\n  letter-spacing:0.08em;\n  color:#fff;\n  margin:0 0 1.1rem;\n}\n.wbm-footer-col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0.7rem; }\n.wbm-footer-col a{\n  color:var(--muted);\n  text-decoration:none;\n  font-size:0.92rem;\n  transition:color .2s ease;\n}\n.wbm-footer-col a:hover{ color:var(--accent); }\n\n.wbm-footer-contact address{\n  font-style:normal;\n  color:var(--muted);\n  font-size:0.92rem;\n  line-height:1.7;\n  margin-top:0.9rem;\n}\n.wbm-footer-contact address strong{ color:#fff; font-weight:600; }\n\n.wbm-footer-bottom{\n  border-top:1px solid var(--line);\n  padding:1.4rem 1.5rem;\n}\n.wbm-footer-bottom-inner{\n  max-width:1240px;\n  margin:0 auto;\n  display:flex;\n  align-items:center;\n  justify-content:space-between;\n  flex-wrap:wrap;\n  gap:0.8rem;\n}\n.wbm-footer-bottom p{ margin:0; color:var(--muted); font-size:0.82rem; }\n\n@media (max-width:900px){\n  .wbm-footer-inner{ grid-template-columns:1fr 1fr; gap:2.5rem 1.5rem; }\n  .wbm-footer-brand{ grid-column:1 / -1; }\n}\n@media (max-width:560px){\n  .wbm-footer-inner{ grid-template-columns:1fr; }\n  .wbm-footer-bottom-inner{ flex-direction:column; align-items:flex-start; }\n}\n</style>\n\n<footer class=\"wbm-footer\">\n  <div class=\"wbm-footer-inner\">\n\n    <div class=\"wbm-footer-brand\">\n      <a href=\"/\" class=\"wbm-logo\" aria-label=\"Wristbands Malta \u2014 home\">\n        <img\n          src=\"https://darkslategrey-louse-379748.hostingersite.com/wp-content/uploads/2026/06/WM-logo-1-scaled.png\"\n          alt=\"Wristbands Malta\"\n          class=\"wbm-logo-img\"\n          loading=\"lazy\"\n          decoding=\"async\">\n      </a>\n    </div>\n\n    <div class=\"wbm-footer-col wbm-footer-contact\">\n      <h4>Contact</h4>\n      <ul>\n        <li><a href=\"tel:+35699100242\">+356 9910 0242</a></li>\n        <li><a href=\"mailto:info@wristbandsmalta.com.mt\">info@wristbandsmalta.com.mt</a></li>\n      </ul>\n      <address>\n        <strong>Merchandise Malta Ltd.</strong><br>\n        7 Oratory Street, Mosta, Malta\n      </address>\n    </div>\n\n    <div class=\"wbm-footer-col\">\n      <h4>Wristbands</h4>\n      <ul>\n        <li><a href=\"https://wristbandsmalta.com.mt/products-in-category/?Material=tyvek-wristbands&amp;Title=Tyvek%20Wristbands\">Tyvek</a></li>\n        <li><a href=\"https://wristbandsmalta.com.mt/products-in-category/?Material=silicone&amp;Title=Silicone%20Wristbands\">Silicone</a></li>\n        <li><a href=\"https://wristbandsmalta.com.mt/products-in-category/?Material=fabric&amp;Title=Fabric%20Wristbands\">Fabric</a></li>\n        <li><a href=\"https://wristbandsmalta.com.mt/products-in-category/?Material=vinyl&amp;Title=Vinyl%20Wristbands\">Vinyl</a></li>\n      </ul>\n    </div>\n\n    <div class=\"wbm-footer-col\">\n      <h4>Navigation</h4>\n      <ul>\n        <li><a href=\"/\">Home</a></li>\n        <li><a href=\"/shop/\">Shop</a></li>\n        <li><a href=\"/about-us/\">About Us</a></li>\n        <li><a href=\"/contact-us/\">Contact Us</a></li>\n      </ul>\n    </div>\n\n  </div>\n\n  <div class=\"wbm-footer-bottom\">\n    <div class=\"wbm-footer-bottom-inner\">\n      <p>&copy; 2026 Merchandise Malta Ltd. All rights reserved.</p>\n    </div>\n  </div>\n</footer>\n"
+          },
+          "elements": [],
+          "widgetType": "html"
+        }
+      ],
+      "isInner": false
+    }
+  ],
+  "page_settings": [],
+  "version": "0.4",
+  "title": "Wristbands Malta - Footer",
+  "type": "footer"
+}
