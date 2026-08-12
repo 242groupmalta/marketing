@@ -1,0 +1,271 @@
+<!--
+  WRISTBANDS MALTA — SITE HEADER
+  Paste this whole block into an Elementor "HTML" widget inside your
+  Header template (Templates > Theme Builder > Headers).
+  Self-contained: no external fonts/images, no jQuery dependency.
+
+  Nav: Home / About us / Shop / Contact + "ORDER NOW" CTA (right)
+  Logo: recreated in CSS from the wordmark you supplied (rounded-rect
+  border, WRISTBANDS heavy + MALTA regular, .com.mt sub-line) so it
+  stays perfectly crisp at any size. Swap in a real SVG/PNG file later
+  if you have one — see the note at the bottom of this file.
+-->
+<style>
+  .wbm-header{
+    --navy:#17224a;
+    --navy-deep:#0a1226;
+    --ink:#1b2340;
+    --line:#e7e9ef;
+    position:sticky; top:0; z-index:1000;
+    background:#fff;
+    border-bottom:1px solid var(--line);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    transition:box-shadow .25s ease;
+    overflow-x:clip;
+  }
+  .wbm-header.wbm-scrolled{ box-shadow:0 4px 18px rgba(10,18,38,0.08); }
+
+  .wbm-header-inner{
+    max-width:1240px;
+    margin:0 auto;
+    padding:0.9rem 1.5rem;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1.5rem;
+  }
+
+  /* ---- Logo ---- */
+  .wbm-logo{
+    display:inline-flex;
+    align-items:flex-end;
+    gap:0.4rem;
+    text-decoration:none;
+    color:var(--ink);
+    flex-shrink:0;
+  }
+  .wbm-logo-badge{
+    display:inline-flex;
+    align-items:center;
+    border:2.5px solid var(--ink);
+    border-radius:999px;
+    padding:0.32em 0.85em 0.34em;
+    line-height:1;
+    white-space:nowrap;
+  }
+  .wbm-logo-badge .wbm-w{
+    font-weight:900;
+    font-size:clamp(0.95rem, 1.6vw, 1.2rem);
+    letter-spacing:-0.02em;
+    color:var(--ink);
+  }
+  .wbm-logo-badge .wbm-m{
+    font-weight:500;
+    font-size:clamp(0.95rem, 1.6vw, 1.2rem);
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  .wbm-logo-domain{
+    font-weight:300;
+    font-size:clamp(0.65rem, 1vw, 0.78rem);
+    color:var(--ink);
+    padding-bottom:0.1em;
+  }
+
+  /* ---- Nav ---- */
+  .wbm-nav-toggle{ display:none; }
+  .wbm-nav-label{ display:none; }
+
+  .wbm-nav{
+    display:flex;
+    align-items:center;
+    gap:2.1rem;
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  .wbm-nav a{
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:600;
+    font-size:0.98rem;
+    position:relative;
+    padding:0.3rem 0;
+  }
+  .wbm-nav a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:0;
+    width:0; height:2px;
+    background:var(--navy);
+    transition:width .2s ease;
+  }
+  .wbm-nav a:hover::after{ width:100%; }
+
+  .wbm-right{
+    display:flex;
+    align-items:center;
+    gap:2.1rem;
+  }
+
+  /* ---- CTA button: dark-blue gradient fades in on hover ---- */
+  .wbm-cta{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:var(--navy);
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    font-size:0.92rem;
+    letter-spacing:0.03em;
+    padding:0.75rem 1.7rem;
+    border-radius:999px;
+    white-space:nowrap;
+    isolation:isolate;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .wbm-cta::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    background:linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 60%, #000814 100%);
+    opacity:0;
+    transition:opacity .35s ease;
+  }
+  .wbm-cta:hover::before{ opacity:1; }
+  .wbm-cta:hover{
+    transform:translateY(-1px);
+    box-shadow:0 8px 20px rgba(10,18,38,0.35);
+  }
+
+  /* ---- Mobile ---- */
+  .wbm-burger{
+    display:none;
+    width:26px; height:20px;
+    position:relative;
+    cursor:pointer;
+    flex-shrink:0;
+  }
+  .wbm-burger span{
+    position:absolute; left:0; right:0; height:2px;
+    background:var(--ink);
+    border-radius:2px;
+    transition:transform .25s ease, opacity .25s ease, top .25s ease;
+  }
+  .wbm-burger span:nth-child(1){ top:0; }
+  .wbm-burger span:nth-child(2){ top:9px; }
+  .wbm-burger span:nth-child(3){ top:18px; }
+
+  @media (max-width:860px){
+    .wbm-nav{
+      position:fixed;
+      top:var(--wbm-header-h, 64px);
+      left:0; right:0;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:0;
+      background:#fff;
+      border-bottom:1px solid var(--line);
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .3s ease;
+    }
+    .wbm-nav a{
+      width:100%;
+      padding:1rem 1.5rem;
+      border-bottom:1px solid var(--line);
+    }
+    .wbm-nav a::after{ display:none; }
+    .wbm-right{ gap:0.8rem; }
+    .wbm-burger{ display:block; }
+    .wbm-nav-toggle:checked ~ .wbm-header-inner .wbm-nav{ max-height:70vh; overflow-y:auto; }
+    .wbm-nav-toggle:checked ~ .wbm-header-inner .wbm-burger span:nth-child(1){ top:9px; transform:rotate(45deg); }
+    .wbm-nav-toggle:checked ~ .wbm-header-inner .wbm-burger span:nth-child(2){ opacity:0; }
+    .wbm-nav-toggle:checked ~ .wbm-header-inner .wbm-burger span:nth-child(3){ top:9px; transform:rotate(-45deg); }
+    .wbm-cta{ padding:0.6rem 1.15rem; font-size:0.82rem; }
+    .wbm-logo-badge{ padding:0.28em 0.65em 0.3em; }
+    .wbm-header-inner{ padding:0.8rem 1rem; gap:0.6rem; }
+  }
+
+  @media (max-width:420px){
+    .wbm-header-inner{ gap:0.4rem; }
+    .wbm-right{ gap:0.5rem; }
+    .wbm-logo-domain{ display:none; }
+    .wbm-cta{ padding:0.55rem 0.85rem; font-size:0.72rem; letter-spacing:0.01em; }
+    .wbm-burger{ width:22px; }
+  }
+</style>
+
+<header class="wbm-header" id="wbm-header">
+  <input type="checkbox" id="wbm-nav-toggle" class="wbm-nav-toggle">
+  <div class="wbm-header-inner">
+
+    <a href="/" class="wbm-logo" aria-label="Wristbands Malta — home">
+      <span class="wbm-logo-badge">
+        <span class="wbm-w">WRISTBANDS</span><span class="wbm-m">MALTA</span>
+      </span>
+      <span class="wbm-logo-domain">.com.mt</span>
+    </a>
+
+    <nav class="wbm-nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/about-us/">About us</a>
+      <a href="/shop/">Shop</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+
+    <div class="wbm-right">
+      <a href="/order-now/" class="wbm-cta">ORDER NOW</a>
+      <label class="wbm-burger" for="wbm-nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+
+  </div>
+</header>
+
+<script>
+(function(){
+  var header = document.getElementById('wbm-header');
+  if(!header || header.dataset.wbmInit) return;
+  header.dataset.wbmInit = '1';
+
+  function setHeaderHeightVar(){
+    document.documentElement.style.setProperty('--wbm-header-h', header.offsetHeight + 'px');
+  }
+  setHeaderHeightVar();
+  window.addEventListener('resize', setHeaderHeightVar);
+
+  function onScroll(){
+    header.classList.toggle('wbm-scrolled', window.scrollY > 4);
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  // Close mobile menu after tapping a link
+  var toggle = document.getElementById('wbm-nav-toggle');
+  header.querySelectorAll('.wbm-nav a').forEach(function(a){
+    a.addEventListener('click', function(){ if(toggle) toggle.checked = false; });
+  });
+})();
+</script>
+
+<!--
+  NOTES
+  - Nav links use placeholder slugs (/about-us/, /shop/, /contact/, /order-now/) —
+    update the href values to match your real WordPress page slugs.
+  - Colors: navy #17224a / deep navy #0a1226, matched by eye to your product
+    page. Send the exact brand hex if it differs and I'll swap the two
+    variables at the top of the CSS.
+  - Logo: rebuilt in CSS/HTML text (not an image) from the wordmark you
+    pasted, so it's crisp at any size and loads instantly. If you have the
+    actual vector/PNG logo file, send it and I'll swap this for an <img>
+    (or inline SVG) instead — just note it should replace the
+    `.wbm-logo-badge` + `.wbm-logo-domain` markup.
+  - This header is set to `position: sticky`, so it stays visible on scroll.
+    Say the word if you'd rather it scroll away normally.
+-->

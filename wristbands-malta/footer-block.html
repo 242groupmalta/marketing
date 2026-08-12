@@ -1,0 +1,165 @@
+<!--
+  WRISTBANDS MALTA — SITE FOOTER
+  Paste this whole block into an Elementor "HTML" widget inside your
+  Footer template (Templates > Theme Builder > Footers).
+
+  Columns: Logo | Contact | WRISTBANDS (products) | Navigation
+-->
+<style>
+  .wbm-footer{
+    --navy:#17224a;
+    --navy-deep:#0a1226;
+    --ink:#1b2340;
+    --muted:#aab1c9;
+    --line:rgba(255,255,255,0.1);
+    background:var(--navy-deep);
+    color:#eef0f7;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  }
+
+  .wbm-footer-inner{
+    max-width:1240px;
+    margin:0 auto;
+    padding:3.5rem 1.5rem 2rem;
+    display:grid;
+    grid-template-columns:1.2fr 1.2fr 1fr 1fr;
+    gap:2.5rem;
+  }
+
+  .wbm-footer-brand .wbm-logo{
+    display:inline-flex;
+    align-items:flex-end;
+    gap:0.4rem;
+    text-decoration:none;
+    color:#fff;
+  }
+  .wbm-footer-brand .wbm-logo-badge{
+    display:inline-flex;
+    align-items:center;
+    border:2.5px solid #fff;
+    border-radius:999px;
+    padding:0.32em 0.85em 0.34em;
+    line-height:1;
+    white-space:nowrap;
+  }
+  .wbm-footer-brand .wbm-w{ font-weight:900; font-size:1.05rem; color:#fff; letter-spacing:-0.02em; }
+  .wbm-footer-brand .wbm-m{ font-weight:500; font-size:1.05rem; color:#fff; letter-spacing:-0.01em; }
+  .wbm-footer-brand .wbm-logo-domain{ font-weight:300; font-size:0.7rem; color:#fff; padding-bottom:0.1em; }
+
+  .wbm-footer-col h4{
+    font-size:0.85rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:#fff;
+    margin:0 0 1.1rem;
+  }
+  .wbm-footer-col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0.7rem; }
+  .wbm-footer-col a{
+    color:var(--muted);
+    text-decoration:none;
+    font-size:0.92rem;
+    transition:color .2s ease;
+  }
+  .wbm-footer-col a:hover{ color:#fff; }
+
+  .wbm-footer-contact address{
+    font-style:normal;
+    color:var(--muted);
+    font-size:0.92rem;
+    line-height:1.7;
+    margin-top:0.9rem;
+  }
+  .wbm-footer-contact address strong{ color:#fff; font-weight:600; }
+
+  .wbm-footer-bottom{
+    border-top:1px solid var(--line);
+    padding:1.4rem 1.5rem;
+  }
+  .wbm-footer-bottom-inner{
+    max-width:1240px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.8rem;
+  }
+  .wbm-footer-bottom p{ margin:0; color:var(--muted); font-size:0.82rem; }
+
+  @media (max-width:900px){
+    .wbm-footer-inner{ grid-template-columns:1fr 1fr; gap:2.5rem 1.5rem; }
+    .wbm-footer-brand{ grid-column:1 / -1; }
+  }
+  @media (max-width:560px){
+    .wbm-footer-inner{ grid-template-columns:1fr; }
+    .wbm-footer-bottom-inner{ flex-direction:column; align-items:flex-start; }
+  }
+</style>
+
+<footer class="wbm-footer">
+  <div class="wbm-footer-inner">
+
+    <div class="wbm-footer-brand">
+      <a href="/" class="wbm-logo" aria-label="Wristbands Malta — home">
+        <span class="wbm-logo-badge">
+          <span class="wbm-w">WRISTBANDS</span><span class="wbm-m">MALTA</span>
+        </span>
+        <span class="wbm-logo-domain">.com.mt</span>
+      </a>
+    </div>
+
+    <div class="wbm-footer-col wbm-footer-contact">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+35699100242">+356 9910 0242</a></li>
+        <li><a href="mailto:info@wristbandsmalta.com.mt">info@wristbandsmalta.com.mt</a></li>
+      </ul>
+      <address>
+        <strong>Merchandise Malta Ltd.</strong><br>
+        7 Oratory Street, Mosta, Malta
+      </address>
+    </div>
+
+    <div class="wbm-footer-col">
+      <h4>Wristbands</h4>
+      <ul>
+        <li><a href="https://wristbandsmalta.com.mt/products-in-category/?Material=tyvek-wristbands&amp;Title=Tyvek%20Wristbands">Tyvek</a></li>
+        <li><a href="https://wristbandsmalta.com.mt/products-in-category/?Material=silicone&amp;Title=Silicone%20Wristbands">Silicone</a></li>
+        <li><a href="https://wristbandsmalta.com.mt/products-in-category/?Material=fabric&amp;Title=Fabric%20Wristbands">Fabric</a></li>
+        <li><a href="https://wristbandsmalta.com.mt/products-in-category/?Material=vinyl&amp;Title=Vinyl%20Wristbands">Vinyl</a></li>
+      </ul>
+    </div>
+
+    <div class="wbm-footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/shop/">Shop</a></li>
+        <li><a href="/about-us/">About Us</a></li>
+        <li><a href="/contact-us/">Contact Us</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="wbm-footer-bottom">
+    <div class="wbm-footer-bottom-inner">
+      <p>&copy; <span id="wbm-year">2026</span> Merchandise Malta Ltd. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var y = document.getElementById('wbm-year');
+  if(y) y.textContent = new Date().getFullYear();
+})();
+</script>
+
+<!--
+  NOTE: "Shop", "About Us", "Contact Us" links in the Navigation column
+  use guessed slugs (/shop/, /about-us/, /contact-us/) since I don't have
+  your real page URLs — tell me the actual ones (or check they resolve)
+  before publishing. The four Wristbands product links use the exact
+  URLs you provided.
+-->
