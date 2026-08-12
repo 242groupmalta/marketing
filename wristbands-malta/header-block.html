@@ -39,38 +39,15 @@
   /* ---- Logo ---- */
   .wbm-logo{
     display:inline-flex;
-    align-items:flex-end;
-    gap:0.4rem;
+    align-items:center;
     text-decoration:none;
     color:var(--ink);
     flex-shrink:0;
   }
-  .wbm-logo-badge{
-    display:inline-flex;
-    align-items:center;
-    border:2.5px solid var(--ink);
-    border-radius:999px;
-    padding:0.32em 0.85em 0.34em;
-    line-height:1;
-    white-space:nowrap;
-  }
-  .wbm-logo-badge .wbm-w{
-    font-weight:900;
-    font-size:clamp(0.95rem, 1.6vw, 1.2rem);
-    letter-spacing:-0.02em;
-    color:var(--ink);
-  }
-  .wbm-logo-badge .wbm-m{
-    font-weight:500;
-    font-size:clamp(0.95rem, 1.6vw, 1.2rem);
-    letter-spacing:-0.01em;
-    color:var(--ink);
-  }
-  .wbm-logo-domain{
-    font-weight:300;
-    font-size:clamp(0.65rem, 1vw, 0.78rem);
-    color:var(--ink);
-    padding-bottom:0.1em;
+  .wbm-logo-img{
+    display:block;
+    height:clamp(34px, 4.6vw, 46px);
+    width:auto;
   }
 
   /* ---- Nav ---- */
@@ -189,14 +166,13 @@
     .wbm-nav-toggle:checked ~ .wbm-header-inner .wbm-burger span:nth-child(2){ opacity:0; }
     .wbm-nav-toggle:checked ~ .wbm-header-inner .wbm-burger span:nth-child(3){ top:9px; transform:rotate(-45deg); }
     .wbm-cta{ padding:0.6rem 1.15rem; font-size:0.82rem; }
-    .wbm-logo-badge{ padding:0.28em 0.65em 0.3em; }
     .wbm-header-inner{ padding:0.8rem 1rem; gap:0.6rem; }
   }
 
   @media (max-width:420px){
     .wbm-header-inner{ gap:0.4rem; }
     .wbm-right{ gap:0.5rem; }
-    .wbm-logo-domain{ display:none; }
+    .wbm-logo-img{ height:clamp(28px, 8vw, 36px); }
     .wbm-cta{ padding:0.55rem 0.85rem; font-size:0.72rem; letter-spacing:0.01em; }
     .wbm-burger{ width:22px; }
   }
@@ -207,10 +183,12 @@
   <div class="wbm-header-inner">
 
     <a href="/" class="wbm-logo" aria-label="Wristbands Malta — home">
-      <span class="wbm-logo-badge">
-        <span class="wbm-w">WRISTBANDS</span><span class="wbm-m">MALTA</span>
-      </span>
-      <span class="wbm-logo-domain">.com.mt</span>
+      <img
+        src="https://darkslategrey-louse-379748.hostingersite.com/wp-content/uploads/2026/06/WM-logo-1-scaled.png"
+        alt="Wristbands Malta"
+        class="wbm-logo-img"
+        loading="eager"
+        decoding="async">
     </a>
 
     <nav class="wbm-nav" aria-label="Primary">
@@ -260,14 +238,13 @@
   NOTES
   - Nav links use placeholder slugs (/about-us/, /shop/, /contact/, /order-now/) —
     update the href values to match your real WordPress page slugs.
-  - Colors: navy #17224a / deep navy #0a1226, matched by eye to your product
-    page. Send the exact brand hex if it differs and I'll swap the two
-    variables at the top of the CSS.
-  - Logo: rebuilt in CSS/HTML text (not an image) from the wordmark you
-    pasted, so it's crisp at any size and loads instantly. If you have the
-    actual vector/PNG logo file, send it and I'll swap this for an <img>
-    (or inline SVG) instead — just note it should replace the
-    `.wbm-logo-badge` + `.wbm-logo-domain` markup.
+  - Colors: navy #1c244b / accent #477ff7, per your brand hex values.
+  - Logo: sourced live from your WordPress media library
+    (wp-content/uploads/2026/06/WM-logo-1-scaled.png). If that file ever
+    moves or is deleted in the Media Library, this image breaks — the
+    src is a hard-coded URL, not a WordPress attachment reference, since
+    this is a raw HTML widget. Re-upload the same filename or update the
+    src here if the URL ever changes.
   - This header is set to `position: sticky`, so it stays visible on scroll.
     Say the word if you'd rather it scroll away normally.
 -->

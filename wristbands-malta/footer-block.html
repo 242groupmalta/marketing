@@ -29,23 +29,19 @@
 
   .wbm-footer-brand .wbm-logo{
     display:inline-flex;
-    align-items:flex-end;
-    gap:0.4rem;
+    align-items:center;
     text-decoration:none;
     color:#fff;
   }
-  .wbm-footer-brand .wbm-logo-badge{
-    display:inline-flex;
-    align-items:center;
-    border:2.5px solid #fff;
-    border-radius:999px;
-    padding:0.32em 0.85em 0.34em;
-    line-height:1;
-    white-space:nowrap;
+  .wbm-footer-brand .wbm-logo-img{
+    display:block;
+    height:42px;
+    width:auto;
+    /* Source file is dark line-art on a transparent background — force it
+       white so it reads on this dark navy footer. If you have a dedicated
+       white/light logo variant, swap the src below and drop this filter. */
+    filter:brightness(0) invert(1);
   }
-  .wbm-footer-brand .wbm-w{ font-weight:900; font-size:1.05rem; color:#fff; letter-spacing:-0.02em; }
-  .wbm-footer-brand .wbm-m{ font-weight:500; font-size:1.05rem; color:#fff; letter-spacing:-0.01em; }
-  .wbm-footer-brand .wbm-logo-domain{ font-weight:300; font-size:0.7rem; color:#fff; padding-bottom:0.1em; }
 
   .wbm-footer-col h4{
     font-size:0.85rem;
@@ -102,10 +98,12 @@
 
     <div class="wbm-footer-brand">
       <a href="/" class="wbm-logo" aria-label="Wristbands Malta — home">
-        <span class="wbm-logo-badge">
-          <span class="wbm-w">WRISTBANDS</span><span class="wbm-m">MALTA</span>
-        </span>
-        <span class="wbm-logo-domain">.com.mt</span>
+        <img
+          src="https://darkslategrey-louse-379748.hostingersite.com/wp-content/uploads/2026/06/WM-logo-1-scaled.png"
+          alt="Wristbands Malta"
+          class="wbm-logo-img"
+          loading="lazy"
+          decoding="async">
       </a>
     </div>
 
@@ -158,9 +156,16 @@
 </script>
 
 <!--
-  NOTE: "Shop", "About Us", "Contact Us" links in the Navigation column
-  use guessed slugs (/shop/, /about-us/, /contact-us/) since I don't have
-  your real page URLs — tell me the actual ones (or check they resolve)
-  before publishing. The four Wristbands product links use the exact
-  URLs you provided.
+  NOTES
+  - "Shop", "About Us", "Contact Us" links in the Navigation column use
+    guessed slugs (/shop/, /about-us/, /contact-us/) since I don't have
+    your real page URLs — tell me the actual ones (or check they resolve)
+    before publishing. The four Wristbands product links use the exact
+    URLs you provided.
+  - Logo: sourced live from the same WordPress media URL as the header
+    (wp-content/uploads/2026/06/WM-logo-1-scaled.png), forced white via
+    CSS filter since the source file is dark line-art. If that filter
+    doesn't look right against the navy background once you view it live,
+    send a dedicated white/light logo file and I'll use that instead —
+    swap the src and delete the `filter` line on `.wbm-logo-img`.
 -->
