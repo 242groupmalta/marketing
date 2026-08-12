@@ -1,0 +1,181 @@
+/*
+  PASTE INTO: Elementor > Site Settings > Custom CSS (site-wide, Pro
+  feature), OR open the Header template > select the root container >
+  Advanced tab > Custom CSS (Pro feature, applies only to this template).
+  Site Settings > Custom CSS is simpler if you don't need it scoped.
+
+  This is raw CSS with NO <style> wrapper — paste it exactly as-is,
+  Elementor adds the <style> tag for you at output time.
+*/
+.wbm-header{
+  --navy:#1c244b;
+  --navy-deep:#10152e;
+  --accent:#477ff7;
+  --ink:#1c244b;
+  --line:#e7e9ef;
+  position:sticky; top:0; z-index:1000;
+  background:#fff;
+  border-bottom:1px solid var(--line);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  overflow-x:clip;
+}
+
+.wbm-header-inner{
+  max-width:1240px;
+  margin:0 auto;
+  padding:0.9rem 1.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1.5rem;
+}
+
+/* ---- Logo ---- */
+.wbm-logo{
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+  color:var(--ink);
+  flex-shrink:0;
+}
+.wbm-logo-img{
+  display:block !important;
+  height:clamp(34px, 4.6vw, 46px) !important;
+  width:auto !important;
+  max-width:none !important;
+}
+
+/* ---- Nav ---- */
+.wbm-nav-toggle{ display:none; }
+
+.wbm-nav{
+  display:flex;
+  align-items:center;
+  gap:2.1rem;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.wbm-nav a{
+  color:var(--ink);
+  text-decoration:none;
+  font-weight:600;
+  font-size:0.98rem;
+  position:relative;
+  padding:0.3rem 0;
+}
+.wbm-nav a::after{
+  content:"";
+  position:absolute;
+  left:0; bottom:0;
+  width:0; height:2px;
+  background:var(--accent);
+  transition:width .2s ease;
+}
+.wbm-nav a:hover::after{ width:100%; }
+.wbm-nav a:hover{ color:var(--accent); }
+
+.wbm-right{
+  display:flex;
+  align-items:center;
+  gap:2.1rem;
+}
+
+/* ---- CTA button: dark-blue gradient fades in on hover ---- */
+.wbm-cta{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:var(--navy);
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  font-size:0.92rem;
+  letter-spacing:0.03em;
+  padding:0.75rem 1.7rem;
+  border-radius:999px;
+  white-space:nowrap;
+  isolation:isolate;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.wbm-cta::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 60%, #000814 100%);
+  opacity:0;
+  transition:opacity .35s ease;
+}
+.wbm-cta:hover::before{ opacity:1; }
+.wbm-cta:hover{
+  transform:translateY(-1px);
+  box-shadow:0 8px 20px rgba(10,18,38,0.35), 0 0 0 3px rgba(71,127,247,0.25);
+}
+
+/* ---- Mobile ---- */
+.wbm-burger{
+  display:none;
+  width:26px; height:20px;
+  position:relative;
+  cursor:pointer;
+  flex-shrink:0;
+}
+.wbm-burger span{
+  position:absolute; left:0; right:0; height:2px;
+  background:var(--ink);
+  border-radius:2px;
+  transition:transform .25s ease, opacity .25s ease, top .25s ease;
+}
+.wbm-burger span:nth-child(1){ top:0; }
+.wbm-burger span:nth-child(2){ top:9px; }
+.wbm-burger span:nth-child(3){ top:18px; }
+
+@media (max-width:860px){
+  .wbm-nav{
+    position:fixed;
+    top:64px;
+    left:0; right:0;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:0;
+    background:#fff;
+    border-bottom:1px solid var(--line);
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .3s ease;
+  }
+  .wbm-nav a{
+    width:100%;
+    padding:1rem 1.5rem;
+    border-bottom:1px solid var(--line);
+  }
+  .wbm-nav a::after{ display:none; }
+  .wbm-right{ gap:0.8rem; }
+  .wbm-burger{ display:block; }
+  .wbm-nav-toggle:checked ~ .wbm-header-inner .wbm-nav{ max-height:70vh; overflow-y:auto; }
+  .wbm-nav-toggle:checked ~ .wbm-header-inner .wbm-burger span:nth-child(1){ top:9px; transform:rotate(45deg); }
+  .wbm-nav-toggle:checked ~ .wbm-header-inner .wbm-burger span:nth-child(2){ opacity:0; }
+  .wbm-nav-toggle:checked ~ .wbm-header-inner .wbm-burger span:nth-child(3){ top:9px; transform:rotate(-45deg); }
+  .wbm-cta{ padding:0.6rem 1.15rem; font-size:0.82rem; }
+  .wbm-header-inner{ padding:0.8rem 1rem; gap:0.6rem; }
+}
+
+@media (max-width:420px){
+  .wbm-header-inner{ gap:0.4rem; }
+  .wbm-right{ gap:0.5rem; }
+  .wbm-logo-img{ height:clamp(28px, 8vw, 36px) !important; }
+  .wbm-cta{ padding:0.55rem 0.85rem; font-size:0.72rem; letter-spacing:0.01em; }
+  .wbm-burger{ width:22px; }
+}
+
+/*
+  NOTE on "top:64px" above: the JS version measured the header's real
+  height and set it dynamically. This static value assumes the header is
+  roughly 64px tall on mobile (matches the current fixed-size logo/CTA).
+  If the mobile dropdown nav ends up with a visible gap above or overlaps
+  the header slightly once you see it live, tell me the actual height and
+  I'll adjust this number.
+*/

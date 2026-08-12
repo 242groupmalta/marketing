@@ -1,0 +1,47 @@
+<!--
+  PASTE INTO: the Elementor "HTML" widget inside your Header template.
+  This file has NO <style> or <script> tags — just markup — so it should
+  survive whatever is stripping the widget content on save. The matching
+  CSS goes in header.css (paste into Elementor > Site Settings > Custom
+  CSS, or the template's Advanced > Custom CSS tab).
+-->
+<header class="wbm-header" id="wbm-header">
+  <input type="checkbox" id="wbm-nav-toggle" class="wbm-nav-toggle">
+  <div class="wbm-header-inner">
+
+    <a href="/" class="wbm-logo" aria-label="Wristbands Malta — home">
+      <img
+        src="https://darkslategrey-louse-379748.hostingersite.com/wp-content/uploads/2026/06/WM-logo-1-scaled.png"
+        alt="Wristbands Malta"
+        class="wbm-logo-img"
+        loading="eager"
+        decoding="async">
+    </a>
+
+    <nav class="wbm-nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/about-us/">About us</a>
+      <a href="/shop/">Shop</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+
+    <div class="wbm-right">
+      <a href="/order-now/" class="wbm-cta">ORDER NOW</a>
+      <label class="wbm-burger" for="wbm-nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+
+  </div>
+</header>
+
+<!--
+  NOTES
+  - Nav links use placeholder slugs (/about-us/, /shop/, /contact/, /order-now/) —
+    update the href values to match your real WordPress page slugs.
+  - Mobile menu works via a pure-CSS checkbox toggle — no JS required.
+  - Dropped from the JS version: the auto-shadow-on-scroll effect and
+    auto-close-on-link-tap. Both were cosmetic only; nothing here depends
+    on JavaScript to function. If you want those back once saving is
+    reliable, ask and I'll give you a Custom-Code-safe version of the script.
+-->
